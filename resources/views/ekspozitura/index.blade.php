@@ -3,155 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="slike/logo.png" type="image/icon type">
-
     <title>EWR</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    <title>Ekspoziture</title>
-    <link rel="stylesheet" href="app.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 <body>
 @extends('ekspozitura.layout')
 @section('content')
-<nav class="sidebar ">
-    <header>
-            
-        <div class="image-text">
-            <span class="image">
-                <img draggable="false" src="slike/logo.png" alt="">
-            </span>
-            <div class="text header-text">
-                <span class="profession">Employee <br>Work Regulator</span>
-            </div>
-        </div>
-        <i class='bx bx-chevron-right toggle'></i>
-    </header>
-    <div class="menu-bar">
-        <div class="menu">
-            <ul class="menu-links">
-                <li class="nav-links">
-                    <a href="ekspozitura">
-                        <i class='bx bx-building-house icon'></i>
-                        <span class="text nav-text">Ekspoziture</span>
-                    </a>
-                </li>
-                <li class="nav-links">
-                    <a href="zaposlen">
-                        <i class='bx bx-body icon'></i>
-                        <span class="text nav-text">Zaposleni</span>
-                    </a>
-                </li>
-                <li class="nav-links">
-                    <a href="poslovi">
-                        <i class='bx bxs-report icon'></i>
-                        <span class="text nav-text">Poslovi</span>
-                    </a>
-                </li>
-                <li class="nav-links">
-                    <a href="uloga">
-                        <i class='bx bx-pie-chart-alt-2 icon'></i>
-                        <span class="text nav-text">Uloge</span>
-                    </a>
-                </li>
-                <li class="nav-links">
-                    <a href="smene">
-                        <i class='bx bx-user-circle icon'></i>
-                        <span class="text nav-text">Smene</span>
-                    </a>
-                </li>
-                <li class="nav-links">
-                    <a href="najave">
-                        <i class='bx bxs-bell-ring icon'></i>
-                        <span class="text nav-text">Najave</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="bottom-content">
-                <li class="">
-                    <a href="index.html">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Odjavi se</span>
-                    </a>
-                </li>
-                <li class="mode">
-                    <div class="moon-sun">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                        <span class="mode-text text">Dark Mode</span>
 
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </div>
-        </div>
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#" >
+                    <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+                    <span class="title">Employee Work Regulator </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/ekspozitura" class="active">
+                    <span class="icon"><ion-icon name="business-outline"></ion-icon> </span>
+                    <span class="title">Ekspoziture</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/zaposlen">
+                    <span class="icon"><ion-icon name="body-outline"></ion-icon></span>
+                    <span class="title">Zaposleni </span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/poslovi">
+                    <span class="icon"> <ion-icon name="file-tray-full-outline"></ion-icon></span>
+                    <span class="title">Poslovi</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/uloga">
+                    <span class="icon"><ion-icon name="finger-print-outline"></ion-icon></span>
+                    <span class="title">Uloge</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/smene">
+                    <span class="icon"> <ion-icon name="sync-outline"></ion-icon></span>
+                    <span class="title">Smene</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/najave">
+                    <span class="icon"> <ion-icon name="calendar-outline"></ion-icon></span>
+                    <span class="title">Najave</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000">
+                    <span class="icon"> <ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Odjavi se</span>
+                </a>
+            </li>
+        </ul>
     </div>
-</nav>
-<script src="script.js"></script>
-
-
-    <div class="container">
-        <div class="row">
- 
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Ekspoziture</h2>
-                        
-                    </div>
-                    <div class="card-body">
-                        <a href="{{ url('/ekspozitura/create') }}" class="btn btn-success btn-sm" title="Add New Ekspozitura">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Dodaj ekspozituru
-                        </a>
-                        <br/>
-                        <br/>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Naziv Ekspoziture</th>
-                                        <th>Lokacija</th>
-                                        <th>Sef </th>
-                                        <th>Kapacitet</th>
-                                        <th>Opcije</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($ekspozitura as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        
-                                        <td>{{ $item->naziv }}</td>
-                                        <td>{{ $item->mesto }}</td>
-                                        <td>{{ $item->sef }}</td>
-                                        <td>{{ $item->kapacitet }}</td>                                        
- 
-                                        <td>
-                                            <a href="{{ url('/ekspozitura/' . $item->id_ex) }}" title="View Ekspoziture"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Pogledaj</button></a>
-                                            <a href="{{ url('/ekspozitura/' . $item->id_ex . '/edit') }}" title="Edit Ekspoziture"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Izmeni</button></a>
- 
-                                            <form method="POST" action="{{ url('/ekspozitura' . '/' . $item->id_ex) }}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Ekspoziture" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Obrisi</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
- 
-                    </div>
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+            <div class="user">
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="cardBox">
+            <a class="card" href="{{ url('/ekspozitura/show') }}">
+                <div>
+                    <div class="cardName">Lista ekspozitura</div>
                 </div>
+                <div class="iconBx"><ion-icon name="business-outline"></ion-icon> </div>
+
+            </a>
+            <a class="card" href="{{ url('/ekspozitura/create') }}">
+                <div>
+                    <div class="cardName">Dodaj ekspozituru</div>
+                </div>
+                <div class="iconBx"><ion-icon name="add-outline"></ion-icon></div>
+
+            </a>
+            <a class="card" href="{{ url('/ekspozitura/show') }}">
+                <div>
+                    <div class="cardName">Izmeni ekspozituru</div>
+                </div>
+                <div class="iconBx"><ion-icon name="repeat-outline"></ion-icon></div>
+
+            </a>
+            <a class="card" >
+                <div>
+                    <div class="number">10</div>
+                    <div class="cardName">Broj ekspozitura</div>
+                </div>
+                <div class="iconBx"><ion-icon name="people-outline"></ion-icon></div>
+
+            </a>
+
+
+        </div>
+        <div class="details">
+            <div class="info">
+                <div class="cardHeader">
+                    <h2>Ekspoziture</h2>
+                    <a  href="{{ url('/ekspozitura/show') }}" class="btn">Prikazi</a>
+                </div>
+                <table id="tableId">
+                    <thead>
+                        <tr>
+                        <td>Naziv Ekspoziture</td>
+                        <td>Lokacija</td>
+                        <td>Sef</td>
+                        <td>Kapacitet</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($ekspozitura as $item)
+                        <tr>
+                            <td>{{ $item->naziv }}</td>
+                            <td>{{ $item->mesto }}</td>
+                            <td>{{ $item->sef }}</td>
+                            <td>{{ $item->kapacitet }}</td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                </table>
             </div>
+
         </div>
     </div>
+</div>
+
 @endsection
-    
 </body>
 </html>

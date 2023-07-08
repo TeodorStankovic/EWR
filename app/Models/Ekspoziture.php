@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Zaposlen;
+
 class Ekspoziture extends Model
 {
     protected $table = 'ekspoziture';
@@ -12,4 +14,10 @@ class Ekspoziture extends Model
     protected $fillable = ['naziv', 'mesto', 'sef','kapacitet'];
 
     use HasFactory;
+
+    public function zaposleni()
+    {
+        return $this->belongsToMany(Zaposlen::class);
+    }
+
 }

@@ -1,23 +1,41 @@
 @extends('najave.layout')
 @section('content')
-<div class="card">
-  <div class="card-header"><h3>Detalji Smena</h3></div>
-  <div class="card-body">
-  
-        <div class="card-body">
-        <h5 class="card-title">Datum podnosenja najave : <br>{{ $najave->created_at }}</h5>
-        <h5 class="card-title">Tip najave : {{ $najave->tip_najave }}</h5>
-        <h5 class="card-title">Trajanje najave <br>od {{ $najave->dat_od }} <br>do {{ $najave->dat_do }}</h5>
-
-          <br>
-        <a href="http://127.0.0.1:8000/najave" class="btn btn-info">Nazad</a>
-        <a href="{{ url('/najave/' . $najave->id_najave . '/edit') }}" title="Edit Najava"><button class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Izmeni</button></a>
-
-
-  </div>
-      
-    </hr>
-  
+<link rel="stylesheet" href="../css/style.css">
+<div class="details">
+  <div class="info">
+      <div class="cardHeader">
+          <h2>Najave</h2>
+          <a href="{{ url('/najave') }}" class="btn">Nazad</a>
+      </div>
+      <table>
+          <thead>
+              <tr>
+              <td>Id</td>
+              <td>Datum podnosenja najave</td>
+              <td>Tip najave</td>
+              <td>Trajanje najave od</td>
+              <td>Trajanje najave do</td>
+              </tr>
+          </thead>
+          <tbody>
+              @foreach($najave as $item)
+              <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $item->created_at }}</td>
+                  <td>{{ $item->tip_najave }}</td>
+                  <td>{{ $item->dat_od }}</td>
+                  <td>{{ $item->dat_do }}</td>
+                  <td>
+                    <a href="{{ url('/najave/' . $item->id_najave . '/edit') }}" title="Edit najave"><button class="edit "> Izmeni</button></a>
+                    <form method="POST" action="{{ url('/najave' . '/' . $item->id_najave) }}" accept-charset="UTF-8" style="display:inline">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <button type="submit" class="delete " title="Delete najave" onclick="return confirm(&quot;Da li ste sigurni da zelite da obrisete najavu?&quot;)" aria-hidden="true"> Obrisi</button>
+                    </form></td>
+              </tr>
+              @endforeach
+              </tbody>
+      </table>
   </div>
 </div>
-@stop
+@endsection

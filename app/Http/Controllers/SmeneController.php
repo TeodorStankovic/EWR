@@ -33,7 +33,7 @@ class SmeneController extends Controller
     {
         $input = $request->all();
         Smene::create($input);
-        return redirect('smene')->with('flash_message', 'Smena je dodata!');
+        return redirect('smene/create')->with('flash_message', 'Smena je dodata!');
 
     }
 
@@ -42,7 +42,7 @@ class SmeneController extends Controller
      */
     public function show(string $id): View
     {
-        $smene = Smene::find($id);
+        $smene = Smene::all();
         return view('smene.show')->with('smene', $smene);
     }
 
@@ -73,7 +73,7 @@ class SmeneController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         Smene::destroy($id);
-        return redirect('smene')->with('flash_message', 'Smena je obrisana!');
+        return redirect('smene/show')->with('flash_message', 'Smena je obrisana!');
 
     }
 }

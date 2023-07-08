@@ -7,11 +7,7 @@ use App\Http\Controllers\PosloviController;
 use App\Http\Controllers\UlogaController;
 use App\Http\Controllers\SmeneController;
 use App\Http\Controllers\NajaveController;
-
-
-
-
-
+use App\Http\Controllers\ZaposlenEkspozitura;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +33,8 @@ Route::resource("/uloga", UlogaController::class);
 Route::resource("/smene", SmeneController::class);
 
 Route::resource("/najave", NajaveController::class);
+
+Route::resource("/zaposleniexpoziture ", ZaposlenEkspozitura::class);
 
 
 

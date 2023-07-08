@@ -1,24 +1,27 @@
 @extends('uloga.layout')
 @section('content')
-<div class="card">
-  <div class="card-header"><h3>Izmene uloga</h3></div>
-  <div class="card-body">
-      
-      <form action="{{ url('uloga/' .$uloga->id_uloge) }}" method="post">
+<link rel="stylesheet" href="../../css/styleAdd.css"
+    <div class="box">
+      <form action="{{ url('uloga/' .$uloga->id_uloge) }}" method="post" autocomplete="off">
         {!! csrf_field() !!}
         @method("PATCH")
-        <input type="hidden" name="id_uloge" id="id_uloge" value="{{$uloga->id_uloge}}" id="id_uloge" />
+        <input type="hidden" name="id_uloge" id="id_uloge" value="{{$uloga->id_uloge}}" id="id" />
 
-        <label>Naziv</label></br>
-        <input type="text" name="naziv_uloge" id="naziv_uloge" value="{{$uloga->naziv_uloge}}" class="form-control"></br>
+            <h2 class="naslov">Izmeni uloge</h2>
 
+            <div class="inputBox">
+                <input type="text"  name="naziv_uloge" id="naziv_uloge" value="{{$uloga->naziv_uloge}}" required="required">
+                <span>Naziv uloge</span>
+                <i></i>
+            </div>
+          <a style="text-decoration:none;">
+               <input type="submit" value="Sacuvaj izmene">
+          </a>
+          <a style="text-decoration:none;" href="http://127.0.0.1:8000/uloga/show" >
+            <input type="button" value="Nazad"></a>
+        </form>
 
-        
-        <input type="submit" value="Sacuvaj izmene" class="btn btn-success">
-        <a href="http://127.0.0.1:8000/uloga" class="btn btn-info">Nazad</a>
-
-    </form>
-  
-  </div>
-</div>
-@stop
+    </div>
+</body>
+</html>
+@endsection

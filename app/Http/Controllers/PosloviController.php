@@ -33,7 +33,7 @@ class PosloviController extends Controller
     {
         $input = $request->all();
         Poslovi::create($input);
-        return redirect('poslovi')->with('flash_message', 'Posao je dodat!');
+        return redirect('poslovi/create')->with('flash_message', 'Posao je dodat!');
 
     }
 
@@ -42,7 +42,7 @@ class PosloviController extends Controller
      */
     public function show(string $id): View
     {
-        $poslovi = Poslovi::find($id);
+        $poslovi = Poslovi::all();
         return view('poslovi.show')->with('poslovi', $poslovi);
     }
 
@@ -73,7 +73,7 @@ class PosloviController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         Poslovi::destroy($id);
-        return redirect('poslovi')->with('flash_message', 'Posao je obrisan!');
+        return redirect('poslovi/show')->with('flash_message', 'Posao je obrisan!');
 
     }
 }

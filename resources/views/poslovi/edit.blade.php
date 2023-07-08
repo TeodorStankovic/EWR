@@ -1,24 +1,27 @@
 @extends('poslovi.layout')
 @section('content')
-<div class="card">
-  <div class="card-header"><h3>Izmene poslova</h3></div>
-  <div class="card-body">
-      
-      <form action="{{ url('poslovi/' .$poslovi->id_posla) }}" method="post">
+<link rel="stylesheet" href="../../css/styleAdd.css"
+    <div class="box">
+      <form action="{{ url('poslovi/' .$poslovi->id_posla) }}" method="post" autocomplete="off">
         {!! csrf_field() !!}
         @method("PATCH")
-        <input type="hidden" name="id_posla" id="id_posla" value="{{$poslovi->id_posla}}" id="id_posla" />
+        <input type="hidden" name="id_posla" id="id_posla" value="{{$poslovi->id_posla}}" id="id" />
 
-        <label>Naziv</label></br>
-        <input type="text" name="naziv_posla" id="naziv_posla" value="{{$poslovi->naziv_posla}}" class="form-control"></br>
+            <h2 class="naslov">Izmeni posao</h2>
 
+            <div class="inputBox">
+                <input type="text"  name="naziv_posla" id="naziv_posla" value="{{$poslovi->naziv_posla}}" required="required">
+                <span>Naziv posla</span>
+                <i></i>
+            </div>
+          <a style="text-decoration:none;">
+               <input type="submit" value="Sacuvaj izmene">
+          </a>
+          <a style="text-decoration:none;" href="http://127.0.0.1:8000/poslovi/show" >
+            <input type="button" value="Nazad"></a>
+        </form>
 
-        
-        <input type="submit" value="Sacuvaj izmene" class="btn btn-success">
-        <a href="http://127.0.0.1:8000/poslovi" class="btn btn-info">Nazad</a>
-
-    </form>
-  
-  </div>
-</div>
-@stop
+    </div>
+</body>
+</html>
+@endsection

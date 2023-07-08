@@ -33,7 +33,7 @@ class EkspozitureController extends Controller
     {
         $input = $request->all();
         Ekspoziture::create($input);
-        return redirect('ekspozitura')->with('flash_message', 'ekspozitura Dodata!');
+        return redirect('ekspozitura/create')->with('flash_message', 'ekspozitura Dodata!');
     }
 
     /**
@@ -41,7 +41,7 @@ class EkspozitureController extends Controller
      */
     public function show(string $id): View
     {
-        $ekspozitura = Ekspoziture::find($id);
+        $ekspozitura = Ekspoziture::all();
         return view('ekspozitura.show')->with('ekspozitura', $ekspozitura);
     }
 
@@ -62,7 +62,7 @@ class EkspozitureController extends Controller
         $ekspozitura = Ekspoziture::find($id);
         $input = $request->all();
         $ekspozitura->update($input);
-        return redirect('ekspozitura')->with('flash_message', 'ekspozitura Updejtovan!');
+        return redirect('ekspozitura/show')->with('flash_message', 'ekspozitura Updejtovan!');
     }
 
     /**
@@ -71,6 +71,6 @@ class EkspozitureController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         Ekspoziture::destroy($id);
-        return redirect('ekspozitura')->with('flash_message', 'ekspozitura obrisana!');
+        return redirect('ekspozitura/show')->with('flash_message', 'ekspozitura obrisana!');
     }
 }

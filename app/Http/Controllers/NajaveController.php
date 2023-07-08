@@ -33,7 +33,7 @@ class NajaveController extends Controller
     {
         $input = $request->all();
         Najave::create($input);
-        return redirect('najave')->with('flash_message', 'najave Dodata!');
+        return redirect('najave/create')->with('flash_message', 'najave Dodata!');
     }
 
     /**
@@ -41,7 +41,7 @@ class NajaveController extends Controller
      */
     public function show(string $id): View
     {
-        $najave = Najave::find($id);
+        $najave = Najave::all();
         return view('najave.show')->with('najave', $najave);
     }
 
@@ -62,7 +62,7 @@ class NajaveController extends Controller
         $najave = Najave::find($id);
         $input = $request->all();
         $najave->update($input);
-        return redirect('najave')->with('flash_message', 'najave Updejtovan!');
+        return redirect('najave/show')->with('flash_message', 'najave Updejtovan!');
     }
 
     /**
@@ -71,6 +71,6 @@ class NajaveController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         Najave::destroy($id);
-        return redirect('najave')->with('flash_message', 'najave obrisana!');
+        return redirect('najave.show')->with('flash_message', 'najave obrisana!');
     }
 }

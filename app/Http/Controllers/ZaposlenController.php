@@ -26,12 +26,12 @@ class ZaposlenController extends Controller
     {
         $input = $request->all();
         Zaposlen::create($input);
-        return redirect('zaposlen')->with('flash_message', 'Zaposleni Dodat!');
+        return redirect('zaposlen/create')->with('flash_message', 'Zaposleni Dodat!');
     }
  
     public function show(string $id): View
     {
-        $zaposlen = Zaposlen::find($id);
+        $zaposlen = Zaposlen::all();
         return view('zaposlen.show')->with('zaposlen', $zaposlen);
     }
  
@@ -53,6 +53,6 @@ class ZaposlenController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         Zaposlen::destroy($id);
-        return redirect('zaposlen')->with('flash_message', 'Zaposleni obrisan!');
+        return redirect('zaposlen/show')->with('flash_message', 'Zaposleni obrisan!');
     }
 }

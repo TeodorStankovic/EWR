@@ -1,21 +1,35 @@
 @extends('uloga.layout')
 @section('content')
-<div class="card">
-  <div class="card-header"><h3>Detalji poslova</h3></div>
-  <div class="card-body">
-  
-        <div class="card-body">
-        <h5 class="card-title">Naziv : {{ $uloga->naziv_uloge }}</h5>
-          <br>
-        <a href="http://127.0.0.1:8000/uloga" class="btn btn-info">Nazad</a>
-        <a href="{{ url('/uloga/' . $uloga->id_uloge . '/edit') }}" title="Edit Uloga"><button class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Izmeni</button></a>
-
-        
-
-  </div>
-      
-    </hr>
-  
+<link rel="stylesheet" href="../css/style.css">
+<div class="details">
+  <div class="info">
+      <div class="cardHeader">
+          <h2>Lista uloga</h2>
+          <a href="{{ url('/uloga') }}" class="btn">Nazad</a>
+      </div>
+      <table>
+          <thead>
+              <tr>
+              <td>Ime</td>
+              <td>Opcije</td>
+              </tr>
+          </thead>
+          <tbody>
+              @foreach($uloga as $item)
+              <tr>
+                
+                  <td>{{ $item->naziv_uloge }}</td>
+                  <td>
+                    <a href="{{ url('/uloga/' . $item->id_uloge . '/edit') }}" title="Edit uloga"><button class="edit "> Izmeni</button></a>
+                    <form method="POST" action="{{ url('/uloga' . '/' . $item->id_uloge) }}" accept-charset="UTF-8" style="display:inline">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <button type="submit" class="delete " title="Delete uloga" onclick="return confirm(&quot;Da li ste sigurni da zelite da obrisete ulogu?&quot;)" aria-hidden="true"> Obrisi</button>
+                    </form></td>
+              </tr>
+              @endforeach
+              </tbody>
+      </table>
   </div>
 </div>
-@stop
+@endsection

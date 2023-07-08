@@ -1,19 +1,24 @@
 @extends('poslovi.layout')
 @section('content')
-<div class="card">
-  <div class="card-header"><h3>Dodavanje poslova</h3></div>
-  <div class="card-body">
-      
-      <form action="{{ url('poslovi') }}" method="post">
-        {!! csrf_field() !!}
-        <label>Naziv</label></br>
-        <input type="text" name="naziv_posla" id="naziv_posla" class="form-control"></br>
+<link rel="stylesheet" href="../css/styleAdd.css"
+    <div class="box">
+        <form action="{{ url('poslovi') }}" method="post" autocomplete="off">
+          {!! csrf_field() !!}
+            <h2 class="naslov">Dodaj posao</h2>
 
-        <input type="submit" value="Sacuvaj" class="btn btn-success">
-        <a href="http://127.0.0.1:8000/poslovi" class="btn btn-info">Nazad</a>
+            <div class="inputBox">
+                <input type="text"  name="naziv_posla" id="naziv_posla" required="required">
+                <span>Naziv posla</span>
+                <i></i>
+            </div>
+          <a style="text-decoration:none;">
+               <input type="submit" value="Dodaj posao">
+          </a>
+          <a style="text-decoration:none;" href="http://127.0.0.1:8000/poslovi" >
+            <input type="button" value="Nazad"></a>
+        </form>
 
-    </form>
-  
-  </div>
-</div>
-@stop
+    </div>
+</body>
+</html>
+@endsection

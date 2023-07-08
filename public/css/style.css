@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800&display=swap');
+*
+{
+   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Red Hat Display', sans-serif;
+    
+}
+:root
+{
+    --blue: #A2B2EE;
+    --white: #FFFF;
+    --grey: #5F7ADB;
+    --black1: #2E3239;
+    --black2: #26292B;
+
+}
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+}
+.container
+{
+    position: relative;
+    width:100%;
+}
+.navigation
+{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--grey);
+    border-left: 10px solid var(--grey);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active
+{
+    position: fixed;
+    width: 80px;
+    height: 100%;
+    background:var(--blue);
+    border-left: 10px solid var(--grey);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation ul
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li
+{
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.navigation ul li:hover
+{
+    background: var(--white);
+}
+.navigation ul li:nth-child(1)
+{
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li:last-child
+{
+    margin-top: 80%;
+}
+
+.navigation ul li a
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+.navigation ul li:hover a
+{
+    color: var(--grey);
+}
+.navigation ul li a .icon
+{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon
+{
+    font-size: 1.75em;
+}
+.navigation ul li a .title
+{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+
+}
+.navigation ul li:hover a::before
+{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background:transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+
+}
+.navigation ul li .active
+{
+    background: var(--white);
+    color: var(--grey);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.navigation ul li:hover a::after
+{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background:transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+}
+.main.active
+{
+    width: calc(100% - 80px);
+    left: 300px;
+}
+.main
+{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background:var(--white);
+    transition: 0.5s;
+    transform: 0.5s;
+}
+.topbar
+{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle
+{
+    
+    position: relative;
+    top:0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    color:transparent;
+}
+.search label
+{
+    position: relative;
+    width: 100%;
+}
+.serach label input
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    outline: none;
+    border: 1px
+}
+.user
+{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user ion-icon
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.details
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-gap: 2px;
+    margin-top: 10px;
+}
+.details .info
+{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+.cardHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cardHeader h2
+{
+    margin: 20px;
+    font-size: 3em;
+    font-weight: 600;
+    color: var(--grey);
+}
+.btn
+{
+    margin: 20px;
+    margin-right: 70px;
+    position: relative;
+    padding: 5px 10px;
+    background: var(--grey);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 25px;
+
+}
+.edit
+{
+    position: relative;
+    padding: 10px 20px;
+    background:#EE9B00;
+    text-decoration: none;
+    font-size: 17px;
+    color: var(--white);
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.delete
+{
+    position: relative;
+    padding: 10px 20px;
+    background:#BB3E03;
+    text-decoration: none;
+    font-size: 17px;
+    color: var(--white);
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+}
+.delete:hover
+{
+    background: #BB3E03;
+    color: var(--blue);
+}
+.edit:hover
+{
+    background: #EE9B00;
+    color: var(--blue);
+}
+
+
+
+.details table
+{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+.details table thead td
+{
+    font-weight: 600;
+}
+.details .info table tr
+{
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    margin: 20px;
+}
+.details .info table tr:last-child
+{
+    border-bottom: none;
+}
+.details .info table tbody tr td:nth-child(1)
+{
+    border: #26292B;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+.details .info table tbody tr td:last-child
+{
+    border: #26292B;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+.details .info table tbody tr td a
+{
+    margin:0 10px 0;
+}
+.details .info table tbody tr:hover
+{
+    background: var(--grey);
+    color: var(--white);
+    
+}
+.details .info table tr td
+{
+    text-align: center;
+    padding: 10px;
+    
+}
+.details .info table tr td:last-child
+{
+
+    text-align: center;
+}
+.cardBox
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+
+}
+.cardBox .card
+{
+    position: relative;
+    background: var(--white);
+    padding:30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+
+}
+.cardBox .card .number
+{
+    position: relative;
+    font-weight: 500;
+    font-size: 2em;
+    color: var(--grey);
+}
+.cardBox .card .cardName
+{
+    color: var(--black1);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card .iconBx
+{
+    font-size: 3em;
+    color: var(--black2);
+}
+.cardBox .card:hover
+{
+    background: var(--grey);
+}
+.cardBox .card:hover .number,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx
+{
+    color: var(--white);
+}
+/* .containers
+{
+    position: relative;
+    left:37%;
+    top: 170px;
+    max-width: 430px;
+    background:var(--white);
+    border-radius: 10px;
+    border-top: none;
+    border-left: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+.containers .form
+{
+    padding: 30px;
+}
+.containers .forms .titles
+{
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+.forms .titles::before
+{
+    content:'';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--grey);
+    border-radius: 25px;
+}
+.form .inputField
+{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+.inputField input
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid var(--blue);
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.inputField input:is(:focus, :valid)
+{
+    border-bottom: 2px solid var(--grey);
+} */

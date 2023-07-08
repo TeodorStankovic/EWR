@@ -34,7 +34,7 @@ class UlogaController extends Controller
     {
         $input = $request->all();
         Uloga::create($input);
-        return redirect('uloga')->with('flash_message', 'Uloga je dodata!');
+        return redirect('uloga/create')->with('flash_message', 'Uloga je dodata!');
 
     }
 
@@ -43,7 +43,7 @@ class UlogaController extends Controller
      */
     public function show(string $id): View
     {
-        $uloga = Uloga::find($id);
+        $uloga = Uloga::all();
         return view('uloga.show')->with('uloga', $uloga);
     }
 
@@ -74,7 +74,7 @@ class UlogaController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         Uloga::destroy($id);
-        return redirect('uloga')->with('flash_message', 'Uloga je obrisana!');
+        return redirect('uloga/show')->with('flash_message', 'Uloga je obrisana!');
 
     }
 }

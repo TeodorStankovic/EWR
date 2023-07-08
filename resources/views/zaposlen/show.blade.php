@@ -1,23 +1,43 @@
 @extends('zaposlen.layout')
 @section('content')
-<div class="card">
-  <div class="card-header"><h3>Detalji zaposlenog</h3></div>
-  <div class="card-body">
-  
-        <div class="card-body">
-        <h5 class="card-title">Ime : {{ $zaposlen->ime }}</h5>
-        <h5 class="card-text">Prezime : {{ $zaposlen->prezime }}</h5>
-        <h5 class="card-text">Status : {{ $zaposlen->status }}</h5></>
-        <h5 class="card-text">Korisnicko ime : {{ $zaposlen->username }}</h5></>
-        <h5 class="card-text">Sifra : {{ $zaposlen->password }}</h5></>
-        <br>
-        <a href="http://127.0.0.1:8000/zaposlen" class="btn btn-info">Nazad</a>
-        <a href="{{ url('/zaposlen/' . $zaposlen->id . '/edit') }}" title="Edit Zaposlen"><button class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Izmeni</button></a>
+<link rel="stylesheet" href="../css/style.css">
+<div class="details">
+  <div class="info">
+      <div class="cardHeader">
+          <h2>Zaposleni</h2>
+          <a href="{{ url('/zaposlen') }}" class="btn">Nazad</a>
+      </div>
+      <table>
+          <thead>
+              <tr>
+              <td>Ime</td>
+              <td>Prezime</td>
+              <td>Username</td>
+              <td>Sifra</td>
+              <td>Status</td>
+              <td>Opcije</td>
+              </tr>
+          </thead>
+          <tbody>
+              @foreach($zaposlen as $item)
+              <tr>
+                  <td>{{ $item->ime }}</td>
+                  <td>{{ $item->prezime }}</td>
+                  <td>{{ $item->username }}</td>
+                  <td>{{ $item->password }}</td>
+                  <td>{{ $item->status }}</td>
+                  <td>
+                    <a href="{{ url('/zaposlen/' . $item->id . '/edit') }}" title="Edit Zaposlen"><button class="edit "> Izmeni</button></a>
+                    <form method="POST" action="{{ url('/zaposlen' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <button type="submit" class="delete " title="Delete Zaposlen" onclick="return confirm(&quot;Da li ste sigurni da zelite da obrisete zaposlenog?&quot;)" aria-hidden="true"> Obrisi</button>
+                    </form></td>
+              </tr>
+              @endforeach
+              </tbody>
+      </table>
+  </div>
 
-  </div>
-      
-    </hr>
-  
-  </div>
 </div>
-@stop
+@endsection

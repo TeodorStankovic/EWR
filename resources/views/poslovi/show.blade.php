@@ -1,4 +1,4 @@
-@extends('poslovi.layout')
+{{-- @extends('poslovi.layout')
 @section('content')
 <div class="card">
   <div class="card-header"><h3>Detalji poslova</h3></div>
@@ -17,4 +17,40 @@
   
   </div>
 </div>
-@stop
+@stop --}}
+
+@extends('poslovi.layout')
+@section('content')
+<link rel="stylesheet" href="../css/style.css">
+<div class="details">
+  <div class="info">
+      <div class="cardHeader">
+          <h2>Lista poslovi</h2>
+          <a href="{{ url('/poslovi') }}" class="btn">Nazad</a>
+      </div>
+      <table>
+          <thead>
+              <tr>
+              <td>Naziv posla</td>
+              <td>Opcije</td>
+              </tr>
+          </thead>
+          <tbody>
+              @foreach($poslovi as $item)
+              <tr>
+                
+                  <td>{{ $item->naziv_posla }}</td>
+                  <td>
+                    <a href="{{ url('/poslovi/' . $item->id_posla . '/edit') }}" title="Edit poslovi"><button class="edit "> Izmeni</button></a>
+                    <form method="POST" action="{{ url('/poslovi' . '/' . $item->id_posla) }}" accept-charset="UTF-8" style="display:inline">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <button type="submit" class="delete " title="Delete poslovi" onclick="return confirm(&quot;Da li ste sigurni da zelite da obrisete posao?&quot;)" aria-hidden="true" > Obrisi</button>
+                    </form></td>
+              </tr>
+              @endforeach
+              </tbody>
+      </table>
+  </div>
+</div>
+@endsection

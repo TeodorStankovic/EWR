@@ -1,29 +1,42 @@
 @extends('ekspozitura.layout')
 @section('content')
-<div class="card">
-  <div class="card-header"><h3>Izmene ekspoziture</h3></div>
-  <div class="card-body">
-      
-      <form action="{{ url('ekspozitura/' .$ekspozitura->id_ex) }}" method="post">
+<link rel="stylesheet" href="../../css/styleAdd.css"
+    <div class="box">
+      <form action="{{ url('ekspozitura/' .$ekspozitura->id_ex) }}" method="post" autocomplete="off">
         {!! csrf_field() !!}
         @method("PATCH")
-        <input type="hidden" name="id_ex" id="id_ex" value="{{$ekspozitura->id_ex}}" id="id_ex" />
+        <input type="hidden" name="id_uloge" id="id_uloge" value="{{$ekspozitura->id_ex}}" id="id" />
 
-        <label>Naziv</label></br>
-        <input type="text" name="naziv" id="naziv" value="{{$ekspozitura->naziv}}" class="form-control"></br>
-        <label>Mesto</label></br>
-        <input type="text" name="mesto" id="mesto" value="{{$ekspozitura->mesto}}" class="form-control"></br>
-        <label>Sef</label></br>
-        <input type="text" name="sef" id="sef" value="{{$ekspozitura->sef}}" class="form-control"></br>
-        <label>Kapacitet</label></br>
-        <input type="text" name="kapacitet" id="kapacitet" value="{{$ekspozitura->kapacitet}}" class="form-control"></br>
+            <h2 class="naslov">Izmeni ekspozituru</h2>
 
-        
-        <input type="submit" value="Sacuvaj izmene" class="btn btn-success">
-        <a href="http://127.0.0.1:8000/ekspozitura" class="btn btn-info">Nazad</a>
+            <div class="inputBox">
+                <input type="text"  name="naziv" id="naziv" value="{{$ekspozitura->naziv}}" required="required">
+                <span>Naziv ekspoziture</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+              <input type="text"  name="mesto" id="mesto" value="{{$ekspozitura->mesto}}" required="required">
+              <span>Mesto ekspoziture</span>
+              <i></i>
+          </div>
+          <div class="inputBox">
+            <input type="text"  name="sef" id="sef" value="{{$ekspozitura->sef}}" required="required">
+            <span>Direktor ekspoziture</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+          <input type="text"  name="kapacitet" id="kapacitet" value="{{$ekspozitura->kapacitet}}" required="required">
+          <span>Kapacitet ekspoziture</span>
+          <i></i>
+      </div>
+          <a style="text-decoration:none;">
+               <input type="submit" value="Sacuvaj izmene">
+          </a>
+          <a style="text-decoration:none;" href="http://127.0.0.1:8000/ekspozitura/show" >
+            <input type="button" value="Nazad"></a>
+        </form>
 
-    </form>
-  
-  </div>
-</div>
-@stop
+    </div>
+</body>
+</html>
+@endsection

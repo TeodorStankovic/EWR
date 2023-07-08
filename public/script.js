@@ -20,3 +20,4 @@ function DarkModeB()
  element.dataset.bsTheme=
     element.dataset.bsTheme == "light" ? "dark" : "light";
 }
+
