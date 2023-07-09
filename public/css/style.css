@@ -80,7 +80,7 @@ body
 }
 .navigation ul li:last-child
 {
-    margin-top: 80%;
+    margin-top: 30%;
 }
 
 .navigation ul li a
@@ -420,60 +420,66 @@ body
 {
     color: var(--white);
 }
-/* .containers
+@media (max-width: 1350px)
 {
-    position: relative;
-    left:37%;
-    top: 170px;
-    max-width: 430px;
-    background:var(--white);
-    border-radius: 10px;
-    border-top: none;
-    border-left: none;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    .navigation ul li
+    {
+        margin-top: 10px;
+    }
 }
-.containers .form
+
+@media (max-width: 1100px)
 {
-    padding: 30px;
+    .navigation
+    {
+        left:300px;
+    }
+    .navigation.active
+    {
+        width: 300px;
+        left: 0;
+    }
+    .main
+    {
+        width: 100%;
+        left: 0;
+    }
+    .main.active
+    {
+        left: 300px;
+    }
+    .cardBox
+    {
+        grid-template-columns: repeat(2,1fr);
+    }
+
 }
-.containers .forms .titles
+@media (max-width: 768px) 
 {
-    position: relative;
-    font-size: 27px;
-    font-weight: 600;
+    .details
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
 }
-.forms .titles::before
+
+@media (max-width:480px) 
 {
-    content:'';
-    position: absolute;
-    width: 30px;
-    height: 3px;
-    left: 0;
-    bottom: 0;
-    background-color: var(--grey);
-    border-radius: 25px;
+    .cardBox
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .cardHeader h2
+    {
+        font-size: 20px;
+    }
+    .user
+    {
+        min-width: 40px;
+    }
+    .navigation
+    {
+        width: 100%;
+        left: -100%;
+        z-index: 5;
+    }   
 }
-.form .inputField
-{
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 30px;
-}
-.inputField input
-{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 0 35px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    border-bottom: 2px solid var(--blue);
-    border-top: 2px solid transparent;
-    transition: all 0.2s ease;
-}
-.inputField input:is(:focus, :valid)
-{
-    border-bottom: 2px solid var(--grey);
-} */

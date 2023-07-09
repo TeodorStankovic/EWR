@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Zaposlen;
+use App\Models\Ekspoziture;
 use Illuminate\View\View;
  
 class ZaposlenController extends Controller
@@ -18,14 +19,19 @@ class ZaposlenController extends Controller
  
     public function create(): View
     {
-        return view('zaposlen.create');
+        $ekspoziture = Ekspoziture::all();
+        return view('zaposlen.create')->with('ekspoziture' ,$ekspoziture);
     }
  
   
     public function store(Request $request): RedirectResponse
     {
         $input = $request->all();
-        Zaposlen::create($input);
+        $zaposleni=Zaposlen::create($input);
+        $id = $input['naziv'];
+        $ekspozitura = Ekspoziture::find($id);
+        $ekspozitura-> zaposleni()->attach($zaposleni->id);
+        
         return redirect('zaposlen/create')->with('flash_message', 'Zaposleni Dodat!');
     }
  

@@ -52,12 +52,12 @@
               </select>
             </div>
             <div class="inputBox">
-              <input type="text"  name="dat_od" id="dat_od" value="{{$najave->dat_od}}" required="required">
+              <input type="date"  name="dat_od" id="dat_od" value="{{$najave->dat_od}}" required="required">
               <span>Trajanje najave od</span>
               <i></i>
           </div>
           <div class="inputBox">
-            <input type="text"  name="dat_do" id="dat_do" value="{{$najave->dat_do}}" required="required">
+            <input type="date"  name="dat_do" id="dat_do" value="{{$najave->dat_do}}" required="required">
             <span>Trajanje najave do</span>
             <i></i>
         </div>

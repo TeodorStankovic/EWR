@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('zaposleni_ekspozitura', function (Blueprint $table) {
-            $table->increments('id');
+
             $table->foreignId('id_zapo')->references('id')->on('zaposlen');
             $table->foreignId('id_expo')->references('id_ex')->on('ekspoziture');
+            // zapisi ovo dole
+            $table->primary(array('id_zapo', 'id_expo'));
             $table->timestamps();
-        });
+         });
     }
 
     /**

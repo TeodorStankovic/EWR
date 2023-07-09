@@ -96,7 +96,7 @@
             </a>
             <a class="card" >
                 <div>
-                    <div class="number">10</div>
+                    <div class="number">{{ count($zaposlen)}}</div>
                     <div class="cardName">Broj zaposlenih</div>
                 </div>
                 <div class="iconBx"><ion-icon name="people-outline"></ion-icon></div>
@@ -118,6 +118,7 @@
                         <td>Prezime</td>
                         <td>Username</td>
                         <td>Status</td>
+                        <td>Ekspozitura</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -127,6 +128,7 @@
                             <td>{{ $item->prezime }}</td>
                             <td>{{ $item->username }}</td>
                             <td>{{ $item->status }}</td>
+                            <td>{{ $item -> hvatEks()-> naziv }}</td>
                         </tr>
                         @endforeach
                         </tbody>

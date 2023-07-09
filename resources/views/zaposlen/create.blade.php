@@ -24,6 +24,13 @@
               </select>
             </div>
             <div class="inputBox">
+              <select  class="inputField" name="naziv" id="naziv" value="naziv">
+                @foreach ($ekspoziture as $item )
+                  <option value="{{ $item->id_ex }}">{{ $item->naziv }}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="inputBox">
               <input type="text"  name="username" id="username" required="required">
               <span>Username</span>
               <i></i>
