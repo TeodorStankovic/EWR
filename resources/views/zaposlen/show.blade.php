@@ -12,9 +12,13 @@
               <tr>
               <td>Ime</td>
               <td>Prezime</td>
+              <td>Status</td>
+              <td>Ekspozitura</td>
+              <td>Posao</td>
+              <td>Smena</td>
               <td>Username</td>
               <td>Sifra</td>
-              <td>Status</td>
+              <td>Uloga</td>
               <td>Opcije</td>
               </tr>
           </thead>
@@ -23,9 +27,14 @@
               <tr>
                   <td>{{ $item->ime }}</td>
                   <td>{{ $item->prezime }}</td>
+                  <td>{{ $item->status }}</td>
+                  <td>{{ $item -> hvatEks()-> naziv }}</td>
+                  <td>{{ $item -> hvatPosao()-> naziv_posla }}</td>
+                  <td>{{ $item -> hvatSmene()-> tip_smene }}</td>
+                  <td>{{ $item -> hvatUloge()-> naziv_uloge }}</td>
                   <td>{{ $item->username }}</td>
                   <td>{{ $item->password }}</td>
-                  <td>{{ $item->status }}</td>
+
                   <td>
                     <a href="{{ url('/zaposlen/' . $item->id . '/edit') }}" title="Edit Zaposlen"><button class="edit "> Izmeni</button></a>
                     <form method="POST" action="{{ url('/zaposlen' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">

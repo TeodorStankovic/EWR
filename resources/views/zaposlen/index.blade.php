@@ -15,7 +15,7 @@
         <ul>
             <li>
                 <a href="#">
-                    <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+                    <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
                     <span class="title">Employee Work Regulator </span>
                 </a>
             </li>
@@ -68,9 +68,9 @@
             <div class="toggle">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <div class="user">
+            {{-- <div class="user">
                 <ion-icon name="person-circle-outline"></ion-icon>
-            </div>
+            </div> --}}
         </div>
         <div class="cardBox">
             <a class="card" href="{{ url('/zaposlen/show') }}">
@@ -100,7 +100,6 @@
                     <div class="cardName">Broj zaposlenih</div>
                 </div>
                 <div class="iconBx"><ion-icon name="people-outline"></ion-icon></div>
-
             </a>
 
 
@@ -116,9 +115,8 @@
                         <tr>
                         <td>Ime</td>
                         <td>Prezime</td>
-                        <td>Username</td>
-                        <td>Status</td>
                         <td>Ekspozitura</td>
+                        <td>Smena</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -126,9 +124,8 @@
                         <tr>
                             <td>{{ $item->ime }}</td>
                             <td>{{ $item->prezime }}</td>
-                            <td>{{ $item->username }}</td>
-                            <td>{{ $item->status }}</td>
                             <td>{{ $item -> hvatEks()-> naziv }}</td>
+                            <td>{{ $item -> hvatSmene()-> tip_smene}}</td>
                         </tr>
                         @endforeach
                         </tbody>

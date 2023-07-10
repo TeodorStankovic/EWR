@@ -2,7 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="../css/styleAdd.css"
     <div class="box">
-        <form action="{{ url('zaposlen') }}" method="post" autocomplete="off">
+        <form class="forma" action="{{ url('zaposlen') }}" method="post" autocomplete="off">
           {!! csrf_field() !!}
             <h2 class="naslov">Dodaj zaposlenog</h2>
 
@@ -29,6 +29,29 @@
                   <option value="{{ $item->id_ex }}">{{ $item->naziv }}</option>
                 @endforeach
               </select>
+              <br>
+              <br>
+              <select  class="inputField" name="naziv_posla" id="naziv_posla" value="naziv_posla">
+                @foreach ($poslovi as $item )
+                  <option value="{{ $item->id_posla }}">{{ $item->naziv_posla}}</option>
+                @endforeach
+              </select>
+              <br>
+              <br>
+              <select  class="inputField" name="tip_smene" id="tip_smene" value="tip_smene">
+                @foreach ($smene as $item )
+                  <option value="{{ $item->id_smene }}">{{ $item->tip_smene}}</option>
+                @endforeach
+              </select>
+              <br>
+              <br>
+              <select  class="inputField" name="naziv_uloge" id="naziv_uloge" value="naziv_uloge">
+                @foreach ($uloga as $item )
+                  <option value="{{ $item->id_uloge}}">{{ $item->naziv_uloge}}</option>
+                @endforeach
+              </select>
+
+
             </div>
             <div class="inputBox">
               <input type="text"  name="username" id="username" required="required">

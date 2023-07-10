@@ -38,11 +38,6 @@
           {!! csrf_field() !!}
             <h2 class="naslov">Dodaj najavu</h2>
 
-            <div class="inputBoxActive">
-                <input type="date"  name="dat_najave" id="dat_najave" required="required">
-                <span>Datum podnosenja najave</span>
-                <i></i>
-            </div>
             <div class="inputBox">
               <select  class="inputField" name="tip_najave" id="tip_najave" value="tip_najave ">
                 <option value="Ispomoc">Ispomoc</option>

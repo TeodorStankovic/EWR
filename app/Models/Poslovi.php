@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Zaposlen;
+
 class Poslovi extends Model
 {
     protected $table = 'poslovi';
@@ -12,4 +14,9 @@ class Poslovi extends Model
     protected $fillable = ['naziv_posla'];
     
     use HasFactory;
+
+    public function zaposleniPosao()
+    {
+        return $this->belongsToMany(Zaposlen::class,$table = 'zaposleni_posao','id_posl','id_zapo')->withTimestamps();
+    }
 }

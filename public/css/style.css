@@ -55,7 +55,7 @@ body
 
 .navigation ul
 {
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -80,7 +80,7 @@ body
 }
 .navigation ul li:last-child
 {
-    margin-top: 30%;
+    margin-top: 15%;
 }
 
 .navigation ul li a

@@ -15,7 +15,7 @@
         <ul>
             <li>
                 <a href="#">
-                    <span class="icon"> <ion-icon name="logo-apple"></ion-icon></span>
+                    <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
                     <span class="title">Employee Work Regulator </span>
                 </a>
             </li>
@@ -68,9 +68,9 @@
             <div class="toggle">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <div class="user">
+            {{-- <div class="user">
                 <ion-icon name="person-circle-outline"></ion-icon>
-            </div>
+            </div> --}}
         </div>
         <div class="cardBox">
             <a class="card" href="{{ url('/smene/show') }}">
@@ -96,7 +96,7 @@
             </a>
             <a class="card" >
                 <div>
-                    <div class="number">10</div>
+                    <div class="number">{{ count($smene)}}</div>
                     <div class="cardName">Broj smena</div>
                 </div>
                 <div class="iconBx"><ion-icon name="calculator-outline"></ion-icon></div>

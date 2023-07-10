@@ -17,7 +17,7 @@ class Ekspoziture extends Model
 
     public function zaposleni()
     {
-        return $this->belongsToMany(Zaposlen::class,$table = 'zaposleni_ekspozitura','id_expo','id_zapo'	);
+        return $this->belongsToMany(Zaposlen::class,$table = 'zaposleni_ekspozitura','id_expo','id_zapo')->withTimestamps();
     }
 
 }

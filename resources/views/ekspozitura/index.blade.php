@@ -15,7 +15,7 @@
         <ul>
             <li>
                 <a href="#" >
-                    <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+                    <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
                     <span class="title">Employee Work Regulator </span>
                 </a>
             </li>
@@ -68,9 +68,9 @@
             <div class="toggle">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <div class="user">
+            {{-- <div class="user">
                 <ion-icon name="person-circle-outline"></ion-icon>
-            </div>
+            </div> --}}
         </div>
         <div class="cardBox">
             <a class="card" href="{{ url('/ekspozitura/show') }}">
@@ -96,10 +96,10 @@
             </a>
             <a class="card" >
                 <div>
-                    <div class="number">10</div>
+                    <div class="number">{{ count ($ekspozitura)}}</div>
                     <div class="cardName">Broj ekspozitura</div>
                 </div>
-                <div class="iconBx"><ion-icon name="people-outline"></ion-icon></div>
+                <div class="iconBx"><ion-icon name="calculator-outline"></ion-icon></div>
 
             </a>
 
@@ -115,18 +115,18 @@
                     <thead>
                         <tr>
                         <td>Naziv Ekspoziture</td>
+                        <td>Direktor</td>
                         <td>Lokacija</td>
-                        <td>Sef</td>
-                        <td>Kapacitet</td>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($ekspozitura as $item)
                         <tr>
                             <td>{{ $item->naziv }}</td>
-                            <td>{{ $item->mesto }}</td>
                             <td>{{ $item->sef }}</td>
-                            <td>{{ $item->kapacitet }}</td>
+                            <td>{{ $item->mesto }}</td>
+
                         </tr>
                         @endforeach
                         </tbody>

@@ -10,7 +10,6 @@
       <table>
           <thead>
               <tr>
-              <td>Id</td>
               <td>Datum podnosenja najave</td>
               <td>Tip najave</td>
               <td>Trajanje najave od</td>
@@ -20,7 +19,6 @@
           <tbody>
               @foreach($najave as $item)
               <tr>
-                  <td>{{ $loop->iteration }}</td>
                   <td>{{ $item->created_at }}</td>
                   <td>{{ $item->tip_najave }}</td>
                   <td>{{ $item->dat_od }}</td>
